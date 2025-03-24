@@ -1,38 +1,38 @@
-# sv
+## Install dependencies
+Installed dependencies with `npm install` (or `pnpm install` or `yarn`)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Running svelte app
+Start a development server:
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+# app by default available on http://localhost:5173/
 npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
 
-## Building
+## Rum playwright tests via VS code
+Install VS Code Playwright plugin https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright
 
-To create a production version of your app:
 
+Add [✓] **Run global setup on each run** checkbox in Playwright VS Code plugin and run tests via Test Eplorer
+
+Additional options
+- [✓] **Show browser** < Run tests in headed mode
+- [✓] **Show trace viewer** < Run in debug mode
 ```bash
-npm run build
+# Playwright webserver configured to run on 'http://localhost:4173'
+	webServer: {
+		command: 'npm run build && npm run preview',
+		 url: 'http://localhost:4173'
+	}
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Run playwright tests via cli
+Please refer to https://playwright.dev/docs/test-cli
+```bash
+# Make sure port 4173 is not in use
+npx playwright test
+```
+## Generate report 

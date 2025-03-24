@@ -46,11 +46,14 @@ test.describe('Todo Items Tests', () => {
     await expect(todoItemNamesUpdate).not.toContain([todoCleanHouse,todoBuyGroceries]);
   });
 
-  // test('preserve data after refresh page', async ({ page }) => {
+  // test('should preserve data after refresh page', async ({ page }) => {
 
   // });
 
-  // test('validation checks aka negative scenarios', async ({ page }) => {
+  // test('should not be able to add empty todos, empty spaces etc..., validation checks aka negative scenarios', async ({ page }) => {
 
+  // });
+
+  // test('should clear text input field when an item is added', async ({ page }) => {
   // });
 });

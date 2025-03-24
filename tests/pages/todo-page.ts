@@ -76,11 +76,7 @@ export class TodoPage {
   }
 
   async removeAllTodoItemsExceptDefault() {
-    while ((await this.todoItems.count()) > 0) {
-      DEFAULT_TODO_ITEMS[0];
-      await this.todoItems.first().hover();
-      await this.todoItems.getByLabel('Delete').first().click();
-    }
+    // TODO: Add impl for cleanup
   }
 
   private async getRowIdxByTodoItemText(text: string): Promise<number> {
