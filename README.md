@@ -35,4 +35,10 @@ Please refer to https://playwright.dev/docs/test-cli
 # Make sure port 4173 is not in use
 npx playwright test
 ```
-## Generate report 
+## Generate report
+Please refer to https://playwright.dev/docs/test-reporters
+```bash
+# HTML report will be available on http://localhost:9323/
+npx playwright test --reporter=html
+npx playwright show-report
+```
