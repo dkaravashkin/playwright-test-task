@@ -28,9 +28,31 @@ export class TodoPage {
     await this.page.goto("http://localhost:4173");
   }
 
-  async addTodoItem(text: string) {
-    await this.inputBox.fill(text);
+  async addTodoItem(item: string) {
+    await this.inputBox.click();
+    await this.inputBox.fill(item);
     await this.addBtn.click();
+  }
+
+  async addTodoItems(...items: string[]) {
+    for (const item of items) {
+      await this.addTodoItem(item);
+    }
+  }
+
+  async checkTodoItemAsCompleted(text: string) {
+    const checkbox = await this.getCheckBoxByTodoItemText(text);
+    await checkbox.click();
+  }
+
+  async removeTodoItemByText(text: string) {
+    await this.removeBtn.nth(await this.getRowIdxByTodoItemText(text)).click();
+  }
+
+  async removeTodoItemsByText(...texts: string[]) {
+    for (const text of texts) {
+      await this.removeBtn.nth(await this.getRowIdxByTodoItemText(text)).click();
+    }
   }
 
   async getTodoItemByText(text: string): Promise<Locator> {
@@ -51,12 +73,6 @@ export class TodoPage {
 
   async getCompletedTodoStyle(text: string): Promise<string> {
     return await getTextDecorationLine(await this.getTodoItemByText(text));
-  }
-
-  async removeTodoItemByText(text: string) {
-    const todo = this.todoItems.filter({ hasText: text });
-    await todo.hover();
-    await todo.getByLabel('Delete').click();
   }
 
   async removeAllTodoItemsExceptDefault() {
