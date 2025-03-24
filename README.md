@@ -42,3 +42,5 @@ Please refer to https://playwright.dev/docs/test-reporters
 npx playwright test --reporter=html
 npx playwright show-report
 ```
+> [!NOTE]  
+> This task was done using POM approach https://playwright.dev/docs/pom and Fixtures https://playwright.dev/docs/test-fixtures
